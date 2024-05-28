@@ -1,0 +1,10 @@
+.icon-circle {
+    display: inline-block;
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    line-height: 30px; /* Adjust to vertically center the icon */
+    border-radius: 50%;
+    background-color: #a86767; /* Adjust background color as needed */
+    text-align: center;
+    vertical-align: middle;
+}
