@@ -22,6 +22,21 @@ class HalamanController extends Controller
 
     public function umkm()
     {
-        return view("pages.umkm");
+        return view("pages.managemen-umkm");
+    }
+
+    public function registrasi()
+    {
+        return view("pages.registrasi-wa");
+    }
+
+    public function detail()
+    {
+        return view("pages.detail");
+    }
+
+    public function user()
+    {
+        return view("pages.managemen-user");
     }
 }

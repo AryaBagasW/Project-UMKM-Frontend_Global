@@ -8,6 +8,16 @@ class TambahController extends Controller
 {
     public function index()
     {
-        return view('pages.tambah');
+        return view('pages.adds.tambah');
+    }
+
+    public function user()
+    {
+        return view('pages.adds.tambah-user');
+    }
+
+    public function umkm()
+    {
+        return view('pages.adds.tambah-umkm');
     }
 }
