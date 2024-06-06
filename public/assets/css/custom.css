@@ -1,0 +1,27 @@
+.custom-bg {
+    background-color: cyan !important;
+    color: cyan !important;
+}
+
+.custom-bg .nav-link, .custom-bg a {
+    color: cyan !important;
+}
+
+.custom-bg a:hover {
+    color: #FFD700 !important; /* Golden color on hover */
+}
+
+.badge-small {
+    font-size: 0.75em;
+    padding: 0.25em 0.4em;
+}
+
+.small {
+    font-size: smaller;
+}
+
+.badge-wajib {
+    font-size: 0.8em; /* xsaller font size */
+    background-color: rgba(128, 128, 128, 0.5); /* Gray color with transparency */
+    padding: 0.2em 0.4em; /* Adjust padding for xsaller size */
+    }

@@ -8,3 +8,14 @@
     text-align: center;
     vertical-align: middle;
 }
+
+.bg-auto {
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+    .badge-wajib {
+        font-size: 0.8em; /* xsaller font size */
+        background-color: rgba(128, 128, 128, 0.5); /* Gray color with transparency */
+        padding: 0.2em 0.4em; /* Adjust padding for xsaller size */
+    }

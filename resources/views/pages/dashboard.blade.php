@@ -4,82 +4,112 @@
 
 <div class="container-fluid mt-5 pt-4">
     <div class="row">
-        <div class="col">
+        <div class="col-2">
             @include('layouts.navbars.sidenav')
         </div>
-
-        <div class="col-md-9">
-            <div class="card full-page-card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="card-title mb-0">Daftar Umkm</h4>
-                    <div class="d-flex align-items-center">
-                        <div class="dropdown me-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                Test1
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="#" onclick="selectOption('Test1', 'dummy1')">Test1</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="selectOption('Test2', 'dummy2')">Test2</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="selectOption('Test3', 'dummy3')">Test3</a></li>
-                            </ul>
-                            <a href="{{'tambah'}}">
-                                <button class="btn btn-success me-2" onclick="addAction()">Tambah</button>
-                            </a>
-                            <input type="text" class="form-control" placeholder="Filter by name" id="nameFilter">
-                        </div>
+        <div class="col-10">
+            <!-- Cards Section -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="card full-page-card justify-content-between align-items-center">
+                        <h3>Title</h3>
+                        <p>Text</p>
                     </div>
                 </div>
-                <div class="card-body p-3">
-                    <div class="table-responsive">
-                        <table class="table tablesorter" id="exampleTable">
-                            <thead class="text-primary">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Kode</th>
-                                    <th>Nama Barang</th>
-                                    <th>Status</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td>
-                                        <a href="{{'edit'}}">
-                                            <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                        </a>
-                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td>
-                                        <a href="{{'edit'}}">
-                                            <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                        </a>
-                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td>
-                                        <a href="{{'edit'}}">
-                                            <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                        </a>
-                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="card full-page-card justify-content-between align-items-center">
+                        <h3>Title</h3>
+                        <p>Text</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="card full-page-card justify-content-between align-items-center">
+                        <h3>Title</h3>
+                        <p>Text</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="card full-page-card justify-content-between align-items-center">
+                        <h3>Title</h3>
+                        <p>Text</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="container-fluid mt-5 pt-4">
+                <div class="card full-page-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4 class="card-title mb-0">Daftar Umkm</h4>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-2">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Test1
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#" onclick="selectOption('Test1', 'dummy1')">Test1</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="selectOption('Test2', 'dummy2')">Test2</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="selectOption('Test3', 'dummy3')">Test3</a></li>
+                                </ul>
+                                <a href="{{ 'tambah' }}">
+                                    <button class="btn btn-success me-2" onclick="addAction()">Tambah</button>
+                                </a>
+                                <input type="text" class="form-control" placeholder="Filter by name" id="nameFilter">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="table-responsive">
+                            <table class="table tablesorter" id="exampleTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kode</th>
+                                        <th>Nama Barang</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td>
+                                            <a href="{{ 'edit' }}">
+                                                <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
+                                            </a>
+                                            <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td>
+                                            <a href="{{ 'edit' }}">
+                                                <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
+                                            </a>
+                                            <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td class="changeable">Test</td>
+                                        <td>
+                                            <a href="{{ 'edit' }}">
+                                                <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
+                                            </a>
+                                            <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,6 +127,7 @@
             </div>
             <div class="modal-body">
                 <p>Apakah anda Yakin untuk menghapus Produk ini?</p>
+                <textarea class="form-control" id="deleteComment" rows="3" placeholder="Tambahkan komentar (opsional)"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
@@ -105,7 +136,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
     function selectOption(option, newValue) {
@@ -117,13 +147,15 @@
     }
 
     function addAction() {
-
+        // Add action logic
     }
 
     function editAction() {
+        // Edit action logic
     }
 
     function deleteAction() {
+        // Delete action logic
     }
 
     let itemIdToDelete = null;
@@ -149,5 +181,4 @@
         // window.location.href = `/delete/${itemIdToDelete}?comment=${comment}`;
         // Or make an AJAX request to delete the item
     }
-
 </script>

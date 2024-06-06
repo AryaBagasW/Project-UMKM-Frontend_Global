@@ -4,11 +4,11 @@
 
 <div class="container-fluid mt-5 pt-4">
     <div class="row">
-        <div class="col">
+        <div class="col-2">
             @include('layouts.navbars.sidenav')
         </div>
 
-        <div class="col-md-9">
+        <div class="col-10 mt-5 pt-4">
             <div class="card full-page-card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Daftar Umkm</h4>
@@ -48,40 +48,34 @@
                                     <td class="changeable">Test</td>
                                     <td class="changeable">Test</td>
                                     <td>
-                                        <a href="{{'edit'}}">
+                                        <a href="{{'edit-produk'}}">
                                             <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
                                         </a>
-                                        <button class="btn btn-danger btn-sm" onclick="deleteAction()">Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td>
-                                        <a href="{{'edit'}}">
-                                            <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                        </a>
-                                        <button class="btn btn-danger btn-sm" onclick="deleteAction()">Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td class="changeable">Test</td>
-                                    <td>
-                                        <a href="{{'edit'}}">
-                                            <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                        </a>
-                                        <button class="btn btn-danger btn-sm" onclick="deleteAction()">Hapus</button>
+                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">Konfirmasi Hapus Produk</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah anda Yakin untuk menghapus Produk ini?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Lanjut</button>
             </div>
         </div>
     </div>
@@ -104,5 +98,29 @@
     }
 
     function deleteAction() {
+    }
+
+    let itemIdToDelete = null;
+
+    function showDeleteModal(itemId) {
+        itemIdToDelete = itemId; // Store the item ID to delete
+        var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+        deleteModal.show();
+    }
+
+    function confirmDelete() {
+        // You can capture the comment if needed
+        const comment = document.getElementById('deleteComment').value;
+        
+        // Perform the delete action
+        // For example, you can use an AJAX request to delete the item
+
+        // Hide the modal after confirming
+        var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmationModal'));
+        deleteModal.hide();
+        
+        // Add your delete logic here, such as:
+        // window.location.href = `/delete/${itemIdToDelete}?comment=${comment}`;
+        // Or make an AJAX request to delete the item
     }
 </script>

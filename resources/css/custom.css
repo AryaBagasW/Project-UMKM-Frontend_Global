@@ -1,0 +1,39 @@
+.custom-bg {
+    background-color: coral !important;
+    color: white !important;
+}
+
+.custom-bg .nav-link, .custom-bg a {
+    color: white !important;
+}
+
+.custom-bg a:hover {
+    color: #FFD700 !important; /* Golden color on hover */
+}
+
+.full-page-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.card .card-title {
+    margin-bottom: 15px;
+}
+
+.card .card-body {
+    padding: 15px;
+}
+
+    .badge-wajib {
+        font-size: 0.8em;
+        background-color: rgba(128, 128, 128, 0.5);
+        padding: 0.2em 0.4em;
+    }

@@ -1,0 +1,12 @@
+.custom-bg {
+    background-color: coral !important;
+    color: white !important;
+}
+
+.custom-bg .nav-link, .custom-bg a {
+    color: white !important;
+}
+
+.custom-bg a:hover {
+    color: #FFD700 !important; /* Golden color on hover */
+}
