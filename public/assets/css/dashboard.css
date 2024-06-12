@@ -1,0 +1,28 @@
+/* public/css/dashboard.css */
+
+.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .col-md-2 {
+    width: 20%;
+  }
+  
+  .col-md-10 {
+    width: 80%;
+  }
+  
+  @media (max-width: 768px) {
+    .col-md-2 {
+      width: 100%;
+    }
+  
+    .col-md-10 {
+      width: 100%;
+    }
+  }
+  

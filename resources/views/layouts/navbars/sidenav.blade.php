@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{'produk'}}">
+                <a class="nav-link" href="{{'managemen-produk'}}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center">
                         <i class="ni ni-cart text-dark text-sm opacity-10"></i>
                     </div>
@@ -59,5 +59,13 @@
                 </a>
             </li>
             
+            <li class="nav-item">
+                <a class="nav-link" href="{{'test'}}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center">
+                        <i class="fa fa-user text-dark text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Test</span>
+                </a>
+            </li>
             
 </aside>

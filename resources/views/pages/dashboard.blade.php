@@ -2,183 +2,138 @@
 @section('breadcrumb', 'home')
 @include('layouts.navbars.topnav')
 
-<div class="container-fluid mt-5 pt-4">
-    <div class="row">
-        <div class="col-2">
-            @include('layouts.navbars.sidenav')
-        </div>
-        <div class="col-10">
-            <!-- Cards Section -->
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <div class="card full-page-card justify-content-between align-items-center">
-                        <h3>Title</h3>
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <div class="card full-page-card justify-content-between align-items-center">
-                        <h3>Title</h3>
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <div class="card full-page-card justify-content-between align-items-center">
-                        <h3>Title</h3>
-                        <p>Text</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-3">
-                    <div class="card full-page-card justify-content-between align-items-center">
-                        <h3>Title</h3>
-                        <p>Text</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Table Section -->
-            <div class="container-fluid mt-5 pt-4">
-                <div class="card full-page-card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0">Daftar Umkm</h4>
-                        <div class="d-flex align-items-center">
-                            <div class="dropdown me-2">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Test1
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#" onclick="selectOption('Test1', 'dummy1')">Test1</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="selectOption('Test2', 'dummy2')">Test2</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="selectOption('Test3', 'dummy3')">Test3</a></li>
-                                </ul>
-                                <a href="{{ 'tambah' }}">
-                                    <button class="btn btn-success me-2" onclick="addAction()">Tambah</button>
-                                </a>
-                                <input type="text" class="form-control" placeholder="Filter by name" id="nameFilter">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="table-responsive">
-                            <table class="table tablesorter" id="exampleTable">
-                                <thead class="text-primary">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Kode</th>
-                                        <th>Nama Barang</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td>
-                                            <a href="{{ 'edit' }}">
-                                                <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                            </a>
-                                            <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td>
-                                            <a href="{{ 'edit' }}">
-                                                <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                            </a>
-                                            <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td class="changeable">Test</td>
-                                        <td>
-                                            <a href="{{ 'edit' }}">
-                                                <button class="btn btn-primary btn-sm me-2" onclick="editAction()">Ubah</button>
-                                            </a>
-                                            <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container-fluid mt-5 pt-4 dashboard-container">
+  <div class="row">
+    <div class="col-md-2">
+      @include('layouts.navbars.sidenav')
     </div>
+    <div class="col-md-10">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+      </nav>
+      
+      <div class="row">
+        @foreach([
+          ['title' => 'Total UMKM', 'value' => 20, 'bgColor' => 'bg-primary', 'textColor' => 'text-white'],
+          ['title' => 'Total Produk UMKM', 'value' => 100, 'bgColor' => 'bg-success', 'textColor' => 'text-white'],
+          ['title' => 'Total Publish', 'value' => 50, 'bgColor' => 'bg-warning', 'textColor' => 'text-dark'],
+          ['title' => 'Total Unpublish', 'value' => 50, 'bgColor' => 'bg-danger', 'textColor' => 'text-white']
+        ] as $stat)
+        <div class="col-md-3">
+          <div class="card card-stats {{ $stat['bgColor'] }}">
+            <div class="card-body">
+              <div class="numbers">
+                <h5 class="{{ $stat['textColor'] }}">{{ $stat['title'] }}</h5>
+                <h1 class="card-title {{ $stat['textColor'] }}">{{ $stat['value'] }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+      
+      <div class="card full-page-card mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h4 class="card-title mb-0">Statistik UMKM</h4>
+          <div class="search-bar">
+            <input type="text" class="form-control" placeholder="Search....." id="nameFilter">
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table tablesorter" id="exampleTable">
+              <thead class="text-primary">
+                <tr>
+                  @foreach(['No', 'Nama UMKM', 'Produk Semua', 'Publish', 'Unpublish'] as $header)
+                  <th class="changeable text-center">{{ $header }}</th>
+                  @endforeach
+                </tr>
+              </thead>
+              <tbody>
+                @foreach([
+                  ['id' => 1, 'name' => 'Agus UMKM', 'all' => 10, 'publish' => 10, 'unpublish' => 10],
+                  ['id' => 2, 'name' => 'Itu UMKM', 'all' => 14, 'publish' => 2, 'unpublish' => 12],
+                  ['id' => 3, 'name' => 'Ini UMKM', 'all' => 5, 'publish' => 10, 'unpublish' => 5],
+                  ['id' => 4, 'name' => 'Rumah UMKM', 'all' => 20, 'publish' => 11, 'unpublish' => 9],
+                  ['id' => 5, 'name' => 'Dia UMKM', 'all' => 7, 'publish' => 8, 'unpublish' => 6]
+                ] as $umkm)
+                <tr>
+                  <td class="text-center">{{ $umkm['id'] }}</td>
+                  <td class="text-center">{{ $umkm['name'] }}</td>
+                  <td class="text-center">
+                    <a href="{{ route('detail', ['id' => $umkm['id']]) }}" class="btn btn-sm btn-primary">Detail</a>
+                  </td>
+                  <td class="text-center">{{ $umkm['publish'] }}</td>
+                  <td class="text-center">{{ $umkm['unpublish'] }}</td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Konfirmasi Hapus -->
-<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteConfirmationModalLabel">Konfirmasi Hapus Produk</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Apakah anda Yakin untuk menghapus Produk ini?</p>
-                <textarea class="form-control" id="deleteComment" rows="3" placeholder="Tambahkan komentar (opsional)"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Lanjut</button>
-            </div>
-        </div>
+<!-- Modal Detail -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailModalLabel">Detail UMKM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Konten detail UMKM -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
 </div>
+
+<!-- Scripts -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleButton = document.getElementById('toggle-sidebar');
+    var sidebar = document.getElementById('sidenav-main');
+
+    toggleButton.addEventListener('click', function() {
+      sidebar.classList.toggle('d-none');
+    });
+  });
+
+  function showDetailModal() {
+    $('#detailModal').modal('show');
+  }
+
+  function showDeleteModal() {
+    $('#deleteConfirmationModal').modal('show');
+  }
+
+  function confirmDelete() {
+    $('#deleteConfirmationModal').modal('hide');
+  }
+
+  function editAction() {
+  }
+
+  function addAction() {
+  }
+
+  function selectOption(option, dummy) {
+  }
+</script>
+
+<i id="toggle-sidebar" class="fas fa-bars menu-icon" onclick="toggleSidebar()"></i>
 
 <script>
-    function selectOption(option, newValue) {
-        document.getElementById('dropdownMenuButton').innerText = option;
-        const changeableCells = document.querySelectorAll('.changeable');
-        changeableCells.forEach(cell => {
-            cell.innerText = newValue;
-        });
-    }
-
-    function addAction() {
-        // Add action logic
-    }
-
-    function editAction() {
-        // Edit action logic
-    }
-
-    function deleteAction() {
-        // Delete action logic
-    }
-
-    let itemIdToDelete = null;
-
-    function showDeleteModal(itemId) {
-        itemIdToDelete = itemId; // Store the item ID to delete
-        var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
-        deleteModal.show();
-    }
-
-    function confirmDelete() {
-        // You can capture the comment if needed
-        const comment = document.getElementById('deleteComment').value;
-        
-        // Perform the delete action
-        // For example, you can use an AJAX request to delete the item
-
-        // Hide the modal after confirming
-        var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmationModal'));
-        deleteModal.hide();
-        
-        // Add your delete logic here, such as:
-        // window.location.href = `/delete/${itemIdToDelete}?comment=${comment}`;
-        // Or make an AJAX request to delete the item
-    }
+  function toggleSidebar() {
+    document.getElementById('sidenav-main').classList.toggle('d-none');
+  }
 </script>

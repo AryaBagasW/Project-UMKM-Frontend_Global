@@ -27,6 +27,7 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 Route::get('/test', [TestController::class, 'index'])->name('test');
 
 Route::get('/tambah-umkm', [TambahController::class, 'umkm'])->name('tambah-umkm');
+Route::get('/tambah-produk', [TambahController::class, 'produk'])->name('tambah-produk');
 Route::get('/tambah-user', [TambahController::class, 'user'])->name('tambah-user');
 Route::get('/tambah', [TambahController::class, 'index'])->name('tambah');
 
@@ -35,9 +36,11 @@ Route::get('/edit-umkm', [EditController::class, 'umkm'])->name('edit-umkm');
 Route::get('/edit-produk', [EditController::class, 'produk'])->name('edit-produk');
 Route::get('/edit-user', [EditController::class, 'user'])->name('edit-user');
 
+Route::get('/login', [HalamanController::class, 'login'])->name('login');
 Route::get('/managemen-user',[HalamanController::class, 'user'])->name('managemen-user');
 Route::get('/umkm', [HalamanController::class, 'umkm'])->name('umkm');
-Route::get('/produk', [HalamanController::class, 'produk'])->name('produk');
+Route::get('/managemen-produk', [HalamanController::class, 'produk'])->name('managemen-produk');
 Route::get('/registrasi', [HalamanController::class, 'registrasi'])->name('wa');
 Route::get('/detail', [HalamanController::class, 'detail'])->name('detail');
+Route::get('/profile', [HalamanController::class, 'profile'])->name('profile');
 

@@ -17,7 +17,7 @@ class HalamanController extends Controller
 
     public function produk()
     {
-        return view("pages.produk");
+        return view("pages.managemen-produk");
     }
 
     public function umkm()
@@ -32,11 +32,21 @@ class HalamanController extends Controller
 
     public function detail()
     {
-        return view("pages.detail");
+        return view("pages.detail-produk");
     }
 
     public function user()
     {
         return view("pages.managemen-user");
+    }
+
+    public function profile()
+    {
+        return view("pages.profile");
+    }
+    
+    public function login()
+    {
+        return view("pages.login");
     }
 }

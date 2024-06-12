@@ -3,12 +3,13 @@
     color: cyan !important;
 }
 
-.custom-bg .nav-link, .custom-bg a {
+.custom-bg .nav-link,
+.custom-bg a {
     color: cyan !important;
 }
 
 .custom-bg a:hover {
-    color: #FFD700 !important; /* Golden color on hover */
+    color: #ffd700 !important; /* Golden color on hover */
 }
 
 .badge-small {
@@ -22,6 +23,72 @@
 
 .badge-wajib {
     font-size: 0.8em; /* xsaller font size */
-    background-color: rgba(128, 128, 128, 0.5); /* Gray color with transparency */
+    background-color: rgba(
+        128,
+        128,
+        128,
+        0.5
+    ); /* Gray color with transparency */
     padding: 0.2em 0.4em; /* Adjust padding for xsaller size */
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col-md-2 {
+    width: 20%;
+}
+
+.col-md-10 {
+    width: 80%;
+}
+
+@media (max-width: 600px) {
+    .col-md-2 {
+        width: 100%;
     }
+
+    .col-md-10 {
+        width: 100%;
+    }
+}
+
+.input-group {
+    padding: 10px;
+}
+
+.search-bar {
+    height: 38px;
+}
+
+.input-group-text,
+.form-control,
+.filter-button {
+    height: 38px;
+    border-radius: 5px;
+}
+
+.btn i {
+    font-size: 20px; /* Increased font size for the icon */
+}
+
+.btn-sm {
+    padding: 5px 10px;
+}
+
+.btn .fa-pencil-alt {
+    color: #007bff;
+}
+
+.status-aktif {
+    color: green;
+}
+
+.status-tidakaktif {
+    color: red;
+}

@@ -16,6 +16,11 @@ class TambahController extends Controller
         return view('pages.adds.tambah-user');
     }
 
+    public function produk()
+    {
+        return view('pages.adds.tambah-produk');
+    }
+
     public function umkm()
     {
         return view('pages.adds.tambah-umkm');

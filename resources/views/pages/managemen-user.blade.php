@@ -26,12 +26,12 @@
                             <li class="breadcrumb-item active" aria-current="page">Manajemen User</li>
                         </ol>
                     </nav>
-    
+
                     <div class="card full-page-card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h4 class="card-title mb-0">Managemen User</h4>
                             <div class="d-flex align-items-center">
-                                <a href="{{'tambah-user'}}" class="btn btn-success me-2">Tambah</a>
+                                <a href="{{ 'tambah-user' }}" class="btn btn-success me-2">Tambah</a>
                                 <input type="text" class="form-control" placeholder="Filter by name" id="nameFilter">
                             </div>
                         </div>
@@ -56,8 +56,10 @@
                                             <td>Pacitan</td>
                                             <td>Published</td>
                                             <td>
-                                                <a href="{{'edit-user'}}" class="btn btn-primary btn-sm me-2">Ubah</a>
-                                                <button class="btn btn-danger btn-sm" onclick="showDeleteModal()">Hapus</button>
+                                                <a href="{{ 'edit-user' }}"
+                                                    class="btn btn-primary btn-sm me-2">Ubah</a>
+                                                <button class="btn btn-danger btn-sm"
+                                                    onclick="showDeleteModal()">Hapus</button>
                                             </td>
                                         </tr>
                                     </tbody>
