@@ -32,11 +32,10 @@
                             <h4 class="card-title mb-0">Daftar UMKM</h4>
                             <div class="d-flex align-items-center">
                                 <div class="dropdown me-2">
-                                    <a href="{{ route('tambah-umkm') }}">
+                                    <a href="">
                                         <button class="btn btn-success me-2">Tambah</button>
                                     </a>
-                                    <input type="text" class="form-control" placeholder="Filter by name"
-                                        id="nameFilter">
+                                    <input type="text" class="form-control" placeholder="Filter by name" id="nameFilter">
                                 </div>
                             </div>
                         </div>
@@ -53,37 +52,26 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>123456789</td>
-                                            <td>UMKM 1</td>
-                                            <td>Pacitan</td>
-                                            <td>Published</td>
-                                            <td>
-                                                <a href="{{ route('edit-umkm', ['id' => 1]) }}">
-                                                    <button class="btn btn-primary btn-sm me-2">Ubah</button>
-                                                </a>
-                                                <button class="btn btn-danger btn-sm"
-                                                    onclick="showDeleteModal(1)">Hapus</button>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td>987654321</td>
-                                            <td>UMKM 2</td>
-                                            <td>Pacitan</td>
-                                            <td>Unpublished</td>
-                                            <td>
-                                                <a href="{{ route('edit-umkm', ['id' => 2]) }}">
-                                                    <button class="btn btn-primary btn-sm me-2">Ubah</button>
-                                                </a>
-                                                <button class="btn btn-danger btn-sm"
-                                                    onclick="showDeleteModal(2)">Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <!-- Additional rows as necessary -->
+                                    <tbody id="table-body">
+                                        @if(isset($umkm) && !empty($umkm))
+                                            @foreach ($umkm as $index => $result)
+                                                <tr>
+                                                    <td>{{ $index + 1 }}</td>
+                                                    <td>{{ $result['npwp'] }}</td>
+                                                    <td>{{ $result['nama'] }}</td>
+                                                    <td>{{ $result['alamat'] }}</td>
+                                                    <td>{{ $result['status_umkm'] ? 'Published' : 'Unpublished' }}</td>
+                                                    <td class="px-6 py-3 border-b">
+                                                        <a href="{{ route('editUmkm', $result['id']) }}" class="btn btn-primary btn-sm me-2">Ubah</a>  
+                                                        <a href="#" class="btn btn-danger btn-sm" onclick="showDeleteModal({{ $result['id'] }})">Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="6">No data available.</td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -94,8 +82,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered"> <!-- Center the modal -->
             <div class="modal-content">
                 <div class="modal-header">
@@ -123,20 +110,11 @@
         }
 
         function confirmDelete() {
-            // Perform the delete action
-            // Example: You can use an AJAX request to delete the item
             alert(`UMKM dengan ID ${itemIdToDelete} akan dihapus.`);
-
-            // Hide the modal after confirming
             var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmationModal'));
             deleteModal.hide();
-
-            // Add your delete logic here, such as:
-            // window.location.href = `/delete/${itemIdToDelete}`;
-            // Or make an AJAX request to delete the item
         }
     </script>
-
 </body>
 
 </html>

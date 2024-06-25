@@ -7,19 +7,6 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/img/favicon.png">
     <title>Laravel</title>
-    <!-- CSS Preloads -->
-    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="preload" as="style">
-    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="preload" as="style">
-    <link href="{{ asset('assets/css/argon-dashboard.css') }}" rel="preload" as="style">
-    <link href="{{ asset('assets/css/custom.css') }}" rel="preload" as="style">
-
-    <!-- Fonts Preloads -->
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" as="style">
-    <link rel="preload" href="{{ asset('assets/fonts/nucleo-icons.woff2') }}" as="font" type="font/woff2"
-        crossorigin="anonymous">
-
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous" defer></script>
 
     <!-- CSS Files -->
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
@@ -41,35 +28,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
 
     <!-- Core JS Files -->
-    <!--<script src="{{ asset('assets/js/core/popper.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}" defer></script> -->
+    <script src="{{ asset('assets/js/argon-dashboard.js') }}" defer></script>
 
     <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-
-        document.onreadystatechange = function() {
-            if (document.readyState !== "complete") {
-                document.querySelector("#loader").style.visibility = "visible";
-            } else {
-                document.querySelector("#loader").style.display = "none";
-                document.querySelector("#content").style.visibility = "visible";
-            }
-        };
-
         document.addEventListener('DOMContentLoaded', function() {
+            // Load the font dynamically
             var fontLink = document.createElement('link');
             fontLink.rel = 'stylesheet';
             fontLink.href = 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
             document.head.appendChild(fontLink);
 
+            // Add dynamic font CSS
             var fontCSS = `
                 @font-face {
                     font-family: 'Nucleo Icons';
@@ -80,16 +49,27 @@
                     font-display: swap;
                 }
             `;
-
             document.getElementById('dynamic-fonts').innerHTML = fontCSS;
+
+            // Show content and hide loader when the page is fully loaded
+            window.addEventListener('load', function() {
+                document.querySelector("#loader").style.display = "none";
+                document.querySelector("#content").style.visibility = "visible";
+            });
         });
+
+        // Scrollbar initialization logic (if needed)
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
     </script>
 
     <!-- GitHub buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- Argon Dashboard JS -->
-    <script src="{{ asset('assets/js/argon-dashboard.js') }}" defer></script>
 
     @stack('js')
 </body>

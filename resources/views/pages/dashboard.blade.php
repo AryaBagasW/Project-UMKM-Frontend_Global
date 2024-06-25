@@ -17,17 +17,17 @@
       
       <div class="row">
         @foreach([
-          ['title' => 'Total UMKM', 'value' => 20, 'bgColor' => 'bg-primary', 'textColor' => 'text-white'],
-          ['title' => 'Total Produk UMKM', 'value' => 100, 'bgColor' => 'bg-success', 'textColor' => 'text-white'],
-          ['title' => 'Total Publish', 'value' => 50, 'bgColor' => 'bg-warning', 'textColor' => 'text-dark'],
-          ['title' => 'Total Unpublish', 'value' => 50, 'bgColor' => 'bg-danger', 'textColor' => 'text-white']
+          ['title' => 'Total UMKM', 'value' => 20],
+          ['title' => 'Total Produk UMKM', 'value' => 100],
+          ['title' => 'Total Publish', 'value' => 50],
+          ['title' => 'Total Unpublish', 'value' => 50]
         ] as $stat)
         <div class="col-md-3">
-          <div class="card card-stats {{ $stat['bgColor'] }}">
+          <div class="card card-stats bg-primary">
             <div class="card-body">
-              <div class="numbers">
-                <h5 class="{{ $stat['textColor'] }}">{{ $stat['title'] }}</h5>
-                <h1 class="card-title {{ $stat['textColor'] }}">{{ $stat['value'] }}</h1>
+              <div class="numbers text-white">
+                <h5 class="text-white">{{ $stat['title'] }}</h5>
+                <h1 class="card-title text-white">{{ $stat['value'] }}</h1>
               </div>
             </div>
           </div>

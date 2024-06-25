@@ -1,17 +1,41 @@
 const mix = require('laravel-mix');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
- */
-
-mix.js('resources/js/app.js', 'public/assets/js/argon-dashboard.js')
-    .sass('resources/scss/argon-dashboard.scss', 'public/assets/css/argon-dashboard.css', [
+mix.js('resources/js/app.js', 'public/assets/js')
+    .extract(['vue', 'axios', 'lodash']) // Code splitting
+    .sass('resources/scss/argon-dashboard.scss', 'public/assets/css', [
         //
-    ]);
+    ])
+    .options({
+        processCssUrls: false,
+        postCss: [
+            require('autoprefixer')(),
+            require('cssnano')({ preset: 'default' }) // Minify CSS
+        ],
+    })
+    .version() // Cache busting
+    .sourceMaps(); // Source maps for easier debugging
+
+// Enable bundle analyzer if needed
+if (mix.inProduction()) {
+    mix.webpackConfig({
+        plugins: [
+            new BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+                openAnalyzer: false,
+                reportFilename: 'bundle-report.html'
+            })
+        ]
+    });
+}
+
+mix.webpackConfig({
+    output: {
+        chunkFilename: 'assets/js/[name].js', // Configure chunk file names
+    }
+});
+
+// Enable versioning for production
+if (mix.inProduction()) {
+    mix.version();
+}

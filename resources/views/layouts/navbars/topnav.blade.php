@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('wa') }}">
+                            <a class="dropdown-item" href="">
                                 <i class="fa fa-user-plus me-2"></i> Register
                             </a>
                         </li>

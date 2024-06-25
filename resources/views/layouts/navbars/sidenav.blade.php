@@ -35,7 +35,7 @@
                 </a>
             </li> --->
             <li class="nav-item">
-                <a class="nav-link" href="{{'umkm'}}">
+                <a class="nav-link" href="{{'managemen-umkm'}}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center">
                         <i class="ni ni-shop text-dark text-sm opacity-10"></i>
                     </div>

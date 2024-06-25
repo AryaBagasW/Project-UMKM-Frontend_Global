@@ -6,10 +6,13 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "axios": "^1.6.4",
+        "autoprefixer": "^10.4.19",
+        "axios": "^1.7.2",
+        "cssnano": "^7.0.2",
         "laravel-mix": "^6.0.49",
         "laravel-vite-plugin": "^1.0.0",
-        "vite": "^5.0.0"
+        "vite": "^5.0.0",
+        "webpack-bundle-analyzer": "^4.10.2"
     },
     "name": "project-umkm-frontend_global",
     "version": "1.0.0",

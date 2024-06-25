@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="text-end">
-                            <a href="{{ route('produk') }}" class="btn btn-secondary">Batal</a>
+                            <a href="" class="btn btn-secondary">Batal</a>
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </form>
